@@ -6,6 +6,10 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
@@ -14,7 +18,7 @@ public class KoreApplication extends Application {
     private ConfigurableApplicationContext springContext;
 
     @Override
-    public void init() {
+    public void init() throws IOException, GeneralSecurityException {
         System.out.println("[KORE] Starting Spring Application Context...");
         this.springContext = new SpringApplicationBuilder(KoreBootstrap.class)
                 .headless(false)
